@@ -87,45 +87,56 @@ sensor_21
 ## 🤖 Model
 The final model is a Long Short-Term Memory (LSTM) neural network.
 LSTM is suitable for this problem because engine sensor data is sequential and degradation depends on patterns observed across previous operating cycles.
-Final Configuration
-Parameter	Value
-Model	LSTM
-Sequence Length	50 cycles
-Input Features	15 sensors
-RUL Cap	125 cycles
-Task	Regression
+
+### Final Configuration
+
+| Parameter | Value |
+|:---|:---|
+| **Model** | LSTM |
+| **Sequence Length** | 50 cycles |
+| **Input Features** | 15 sensors |
+| **RUL Cap** | 125 cycles |
+| **Task** | Regression |
 
 📊 Model Performance
-Final LSTM — Validation
-Metric	Score
-MAE	8.24 cycles
-RMSE	11.31 cycles
-R²	0.925
+### 📊 Final LSTM — Validation
+
+| Metric | Score |
+|---|---:|
+| **MAE** | **8.24 cycles** |
+| **RMSE** | **11.31 cycles** |
+| **R²** | **0.925** |
 
 
-Final LSTM — Official FD001 Test
-Metric	Score
-MAE	10.22 cycles
-RMSE	14.12 cycles
-R²	0.798
+### 📊 Final LSTM — Official FD001 Test
+
+| Metric | Score |
+|---|---:|
+| **MAE** | **10.22 cycles** |
+| **RMSE** | **14.12 cycles** |
+| **R²** | **0.798** |
 
 
-What this means
-The final model's test MAE of 10.22 cycles means that, on average, the predicted remaining useful life differs from the actual RUL by approximately 10 operating cycles.
-📈 Model Comparison
-Several models were evaluated during development.
-Model	MAE	RMSE	R²
-Baseline Random Forest	25.86	35.35	0.710
-Temporal Random Forest	24.20	32.87	0.749
-XGBoost	24.54	33.42	0.741
-Fair Random Forest	21.80	30.37	0.726
-30-Cycle LSTM	16.87	23.58	0.835
-50-Cycle LSTM	13.64	19.66	0.863
-50-Cycle Capped LSTM	8.24	11.31	0.925
 
+## What does this mean?
+The final model achieved a test MAE of 10.22 cycles, meaning that the predicted RUL differs from the actual RUL by approximately 10 operating cycles on average.
 
-The final capped LSTM demonstrated the strongest validation performance among the evaluated approaches.
+### 📈 Model Comparison
+
+| Model | MAE | RMSE | R² |
+|---|---:|---:|---:|
+| Baseline Random Forest | 25.86 | 35.35 | 0.710 |
+| Temporal Random Forest | 24.20 | 32.87 | 0.749 |
+| XGBoost | 24.54 | 33.42 | 0.741 |
+| Fair Random Forest | 21.80 | 30.37 | 0.726 |
+| 30-Cycle LSTM | 16.87 | 23.58 | 0.835 |
+| 50-Cycle LSTM | 13.64 | 19.66 | 0.863 |
+| **50-Cycle Capped LSTM** | **8.24** | **11.31** | **0.925** |
+
+The 50-cycle capped LSTM achieved the strongest validation performance among the evaluated models.
+
 🏗️ System Architecture
+
                  NASA C-MAPSS FD001
                          │
                          ▼
@@ -156,28 +167,29 @@ The final capped LSTM demonstrated the strongest validation performance among th
               ▼
        Streamlit Dashboard
 
-🛠️ Tech Stack
-Machine Learning
+## 🛠️ Tech Stack
+### Machine Learning
 - Python
 - TensorFlow / Keras
 - Scikit-learn
 - NumPy
 - Pandas
-MLOps
+### MLOps
 - MLflow
 - MLflow Model Registry
 - Model versioning
 - Experiment tracking
-Backend
+### Backend
 - FastAPI
 - Uvicorn
-Frontend
+### Frontend
 - Streamlit
-Development
+### Development
 - Jupyter Notebook
 - Git
 - GitHub
 📁 Project Structure
+```
 Predictive-Maintenance/
 │
 ├── app.py
@@ -195,12 +207,12 @@ Predictive-Maintenance/
 │   └── metrics.json
 │
 └── Predictive_Maintenance_RUL_Prediction.ipynb
+```
+The raw C-MAPSS dataset, virtual environment, MLflow database, and MLflow run artifacts are excluded from the repository.
 
-The raw C-MAPSS dataset is not included in the repository.
-
-🔄 MLOps Workflow
+## 🔄 MLOps Workflow
 The project uses MLflow to track and manage the trained model.
-Experiment Tracking
+### Experiment Tracking
 The following information is tracked:
 - Model parameters
 - Sequence length
@@ -209,11 +221,11 @@ The following information is tracked:
 - Validation metrics
 - Test metrics
 - Model artifacts
-Model Registry
+### Model Registry
 The final model is registered as:
 PredictiveMaintenance_LSTM
 
-Current registered version:
+### Current registered version:
 Version 1
 
 The FastAPI application loads the registered model for inference.
