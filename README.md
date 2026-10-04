@@ -98,7 +98,7 @@ LSTM is suitable for this problem because engine sensor data is sequential and d
 | **RUL Cap** | 125 cycles |
 | **Task** | Regression |
 
-📊 Model Performance
+### 📊 Model Performance
 ### 📊 Final LSTM — Validation
 
 | Metric | Score |
