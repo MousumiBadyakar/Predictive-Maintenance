@@ -478,33 +478,16 @@ Through this project, I worked with:
 - Streamlit application development
 - Model serving
 - Git and GitHub workflow
+🔮 Future Improvements
+- Deploy the FastAPI backend to the cloud
+- Deploy the Streamlit frontend
+- Add automated CI/CD
+- Add Docker containerization
+- Add real-time sensor data simulation
+- Add model monitoring
+- Add automated model retraining
+- Add prediction visualizations and degradation curves
 
----
-
-# 🔮 Future Improvements
-
-- ☁️ Deploy the FastAPI backend to the cloud
-- 🚀 Deploy the Streamlit application
-- 🔄 Add automated CI/CD
-- 🐳 Add Docker containerization
-- 📡 Add real-time sensor data simulation
-- 📊 Add model monitoring
-- 🔁 Add automated model retraining
-- 📈 Add prediction and degradation visualizations
-
----
-
-# 👩‍💻 Author
-
-**Mousumi Badyakar**
-
+## 👩‍💻 Author
+Mousumi Badyakar
 B.Tech — Information Technology
-
-### Connect with me
-
-- GitHub: [MousumiBadyakar](https://github.com/MousumiBadyakar)
-- LinkedIn: [Mousumi Badyakar](https://www.linkedin.com/)
-
----
-
-⭐ If you found this project interesting, feel free to explore the repository!
