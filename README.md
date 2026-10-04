@@ -134,8 +134,10 @@ The final model achieved a test MAE of 10.22 cycles, meaning that the predicted 
 | **50-Cycle Capped LSTM** | **8.24** | **11.31** | **0.925** |
 
 The 50-cycle capped LSTM achieved the strongest validation performance among the evaluated models.
+
 ---
-### 🏗️ System Architecture
+
+## 🏗️ System Architecture
 
                  NASA C-MAPSS FD001
                          │
@@ -166,6 +168,7 @@ The 50-cycle capped LSTM achieved the strongest validation performance among the
               │
               ▼
        Streamlit Dashboard
+---
 
 ## 🛠️ Tech Stack
 ### Machine Learning
@@ -188,7 +191,9 @@ The 50-cycle capped LSTM achieved the strongest validation performance among the
 - Jupyter Notebook
 - Git
 - GitHub
-📁 Project Structure
+---
+
+## 📁 Project Structure
 ```
 Predictive-Maintenance/
 │
@@ -209,6 +214,7 @@ Predictive-Maintenance/
 └── Predictive_Maintenance_RUL_Prediction.ipynb
 ```
 The raw C-MAPSS dataset, virtual environment, MLflow database, and MLflow run artifacts are excluded from the repository.
+---
 
 ## 🔄 MLOps Workflow
 The project uses MLflow to track and manage the trained model.
@@ -227,9 +233,10 @@ PredictiveMaintenance_LSTM
 
 ### Current registered version:
 Version 1
-
 The FastAPI application loads the registered model for inference.
-⚡ FastAPI
+
+---
+## ⚡ FastAPI
 The trained model is exposed through a REST API.
 Start the API:
 uvicorn api:app --reload
