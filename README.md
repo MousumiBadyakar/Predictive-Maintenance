@@ -214,6 +214,7 @@ Predictive-Maintenance/
 └── Predictive_Maintenance_RUL_Prediction.ipynb
 ```
 The raw C-MAPSS dataset, virtual environment, MLflow database, and MLflow run artifacts are excluded from the repository.
+
 ---
 
 ## 🔄 MLOps Workflow
@@ -233,125 +234,8 @@ PredictiveMaintenance_LSTM
 
 ### Current registered version:
 Version 1
+
 The FastAPI application loads the registered model for inference.
 
 ---
-## ⚡ FastAPI
-The trained model is exposed through a REST API.
-Start the API:
-uvicorn api:app --reload
 
-The API will be available at:
-http://127.0.0.1:8000
-
-Prediction Endpoint
-GET /predict/{engine_id}
-
-Example:
-http://127.0.0.1:8000/predict/1
-
-Example response:
-{
-    "engine_id": 1,
-    "observed_cycles": 31,
-    "predicted_rul": 124.8,
-    "unit": "cycles",
-    "model": "PredictiveMaintenance_LSTM",
-    "model_version": "1"
-}
-
-🎨 Streamlit Dashboard
-The project includes an interactive Streamlit interface for selecting an engine and viewing its predicted RUL.
-Start Streamlit:
-streamlit run app.py
-
-The dashboard allows users to:
-- Select an Engine ID
-- Request an RUL prediction
-- View predicted remaining cycles
-- View observed cycles
-- See the registered model and version
-The Streamlit application communicates with the FastAPI backend.
-⚙️ Installation
-1. Clone the repository
-git clone https://github.com/MousumiBadyakar/Predictive-Maintenance.git
-
-cd Predictive-Maintenance
-
-2. Create a virtual environment
-python -m venv .venv
-
-3. Activate the environment
-Windows:
-.venv\Scripts\activate
-
-4. Install dependencies
-pip install -r requirements.txt
-
-📊 MLflow
-Start the MLflow tracking server:
-mlflow ui
-
-Then open:
-http://127.0.0.1:5000
-
-The MLflow interface can be used to inspect:
-- Experiments
-- Runs
-- Parameters
-- Metrics
-- Model artifacts
-- Registered models
-▶️ Running the Project
-The recommended workflow is:
-Terminal 1 — Start MLflow
-mlflow ui
-
-Terminal 2 — Start FastAPI
-uvicorn api:app --reload
-
-Terminal 3 — Start Streamlit
-streamlit run app.py
-
-Then open the Streamlit URL shown in the terminal.
-🧪 Inference
-A standalone inference script is also provided:
-python inference.py
-
-The script loads:
-- Registered LSTM model
-- Feature scaler
-- Model configuration
-- FD001 test data
-and generates an RUL prediction for a selected engine.
-⚠️ Important Note About Test Data
-The official C-MAPSS FD001 test set contains partial engine histories.
-For the Streamlit/API demonstration, engines with fewer than 50 observed cycles are padded to satisfy the LSTM's required sequence length.
-This padding strategy is used only for the interactive inference demonstration.
-The official test metrics reported above are calculated using the proper FD001 test evaluation procedure and should be considered the authoritative model performance.
-💡 Key Learnings
-Through this project, I worked with:
-- Time-series preprocessing
-- Remaining Useful Life prediction
-- LSTM sequence modeling
-- Feature selection
-- Sliding-window generation
-- Model evaluation
-- MLflow experiment tracking
-- MLflow Model Registry
-- REST API development with FastAPI
-- Streamlit application development
-- Model serving
-- Git and GitHub workflow
-🔮 Future Improvements
-- Deploy the FastAPI backend to the cloud
-- Deploy the Streamlit frontend
-- Add automated CI/CD
-- Add Docker containerization
-- Add real-time sensor data simulation
-- Add model monitoring
-- Add automated model retraining
-- Add prediction visualizations and degradation curves
-👩‍💻 Author
-Mousumi Badyakar
-B.Tech — Information Technology
