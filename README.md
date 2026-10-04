@@ -490,4 +490,3 @@ Through this project, I worked with:
 
 ## 👩‍💻 Author
 Mousumi Badyakar
-B.Tech — Information Technology
