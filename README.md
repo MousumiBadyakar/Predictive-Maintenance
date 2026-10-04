@@ -135,7 +135,7 @@ The final model achieved a test MAE of 10.22 cycles, meaning that the predicted 
 
 The 50-cycle capped LSTM achieved the strongest validation performance among the evaluated models.
 ---
-## 🏗️ System Architecture
+### 🏗️ System Architecture
 
                  NASA C-MAPSS FD001
                          │
