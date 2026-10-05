@@ -13,7 +13,6 @@ mlruns/
 
 # Dataset
 dataset/
-*.zip
 
 # Jupyter
 .ipynb_checkpoints/
