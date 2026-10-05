@@ -1,7 +1,7 @@
 import json
 
 import joblib
-import mlflow
+from tensorflow import keras
 import numpy as np
 import pandas as pd
 from fastapi import FastAPI, HTTPException
@@ -13,6 +13,7 @@ from fastapi import FastAPI, HTTPException
 
 CONFIG_PATH = "models/model_config.json"
 SCALER_PATH = "models/scaler.pkl"
+MODEL_PATH = "models/lstm_50_capped.keras"
 TEST_PATH = "dataset/test_FD001.txt"
 
 MODEL_NAME = "PredictiveMaintenance_LSTM"
@@ -53,9 +54,9 @@ scaler = joblib.load(SCALER_PATH)
 # Load registered MLflow model
 # ==========================================
 
-MODEL_URI = f"models:/{MODEL_NAME}/{MODEL_VERSION}"
+MODEL_PATH = "models/lstm_50_capped.keras"
 
-model = mlflow.keras.load_model(MODEL_URI)
+model = keras.models.load_model(MODEL_PATH)
 
 
 # ==========================================
